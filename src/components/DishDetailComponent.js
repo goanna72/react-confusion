@@ -8,14 +8,14 @@ class DishDetail extends Component {
         super(props);   
     } 
 
-    renderDish(dishA){
+    renderDish(dishDetails){
         return(
-                 <div  className="col-12 col-md-5 m-1" key={dishA.id}>
+                 <div  className="col-12 col-md-5 m-1" key={dishDetails.id}>
                     <Card>
-                        <CardImg top width="100%" src={dishA.image} alt={dishA.name} />
+                        <CardImg top width="100%" src={dishDetails.image} alt={dishDetails.name} />
                             <CardBody>
-                                <CardTitle>{dishA.name}</CardTitle>
-                                <CardText>{dishA.description}</CardText>
+                                <CardTitle>{dishDetails.name}</CardTitle>
+                                <CardText>{dishDetails.description}</CardText>
                             </CardBody>
                     </Card>
                 </div>
@@ -23,11 +23,12 @@ class DishDetail extends Component {
         );
     }
 
-    renderComments(dishA){
-        return (
+    renderComments(dishComments){
+        return dishComments && (
             <div  className="col-12 col-md-5 m-1">
                 <h4>Comments</h4>
-                    {dishA.map((value, index) => {  
+                
+                    {dishComments.map((value, index) => {  
                         const months = ["Jan", "Feb", "Mar","Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
                         const date =  new Date(value.date);
                         return (
@@ -38,6 +39,9 @@ class DishDetail extends Component {
                         )
                     })} 
             </div>
+        );
+        return (
+            <div></div>
         );
     }
 
