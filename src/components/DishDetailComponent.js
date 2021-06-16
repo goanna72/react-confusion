@@ -7,7 +7,7 @@ class DishDetail extends Component {
     constructor(props) {
         super(props);   
     } 
-
+   
     renderDish(dishDetails){
         return(
                  <div  className="col-12 col-md-5 m-1" key={dishDetails.id}>
@@ -31,13 +31,11 @@ class DishDetail extends Component {
                     <h4>Comments</h4>
                     
                         {dishComments.map((value, index) => {  
-                            const months = ["Jan", "Feb", "Mar","Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
-                            const date =  new Date(value.date);
+                            
                             return (
                                 <ul className="list-unstyled" key={value.id}>
                                     <li>{value.comment}</li>
-                                    <li> -- {value.author} { value.date && `, ${months[date.getMonth()]} ${date.getDate()}, ${date.getFullYear()}` } </li>
-                                    <li>{new Intl.DateTimeFormat('en-US', {year: 'numeric', month: 'short', day: '2-digit'}).format(new Date(Date.parse(value.date)))}</li>
+                                    <li> -- {value.author} {new Intl.DateTimeFormat('en-US', {year: 'numeric', month: 'short', day: '2-digit'}).format(new Date(Date.parse(value.date)))}</li>
                                 </ul>
                             )
                         })} 
@@ -51,11 +49,14 @@ class DishDetail extends Component {
     }
 
     render() {
-        if (this.props != null)
+
+        if (this.props.dish)
             return(
+                <div class="container">
                 <div className="row">
-                    {this.renderDish(this.props.dishArray)}
-                    {this.renderComments(this.props.dishArray.comments)}
+                    {this.renderDish(this.props.dish)}  
+                    {this.renderComments(this.props.dish.comments)} 
+                </div>
                 </div>
             );
         else
