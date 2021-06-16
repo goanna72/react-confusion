@@ -26,6 +26,7 @@ class DishDetail extends Component {
     renderComments(dishComments){
         if (dishComments) {
             return (
+                
                 <div  className="col-12 col-md-5 m-1">
                     <h4>Comments</h4>
                     
@@ -36,10 +37,12 @@ class DishDetail extends Component {
                                 <ul className="list-unstyled" key={value.id}>
                                     <li>{value.comment}</li>
                                     <li> -- {value.author} { value.date && `, ${months[date.getMonth()]} ${date.getDate()}, ${date.getFullYear()}` } </li>
+                                    <li>{new Intl.DateTimeFormat('en-US', {year: 'numeric', month: 'short', day: '2-digit'}).format(new Date(Date.parse(value.date)))}</li>
                                 </ul>
                             )
                         })} 
                 </div>
+                
             );
         }
         return (
