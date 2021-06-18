@@ -4,14 +4,16 @@ import { Link } from 'react-router-dom';
 
 function RenderLeader({leader}) {
     return (
-        <div key={leader.id} className="media">
-            <img className="d-flex mr-4 img-thumbmail align-left" src={leader.image} alt={leader.name}/>
-            <div className="media-body">
-                <h4>{leader.name}</h4>
+        <div key={leader.id} className="media mt-3"> 
+            <Media left>
+                <Media object src={leader.image}  alt={leader.name}></Media>
+            </Media>
+            <Media body className="ml-5">
+                <Media heading>{leader.name}</Media>
                 <p>{leader.designation}</p>
                 <p>{leader.description}</p>
                 <p>&nbsp;</p>
-            </div>     
+            </Media>     
         </div>
     );
 }
