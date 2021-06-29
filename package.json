@@ -42,6 +42,7 @@
     ]
   },
   "devDependencies": {
+    "cross-fetch": "^2.1.0",
     "react-redux": "^5.0.7",
     "react-redux-form": "^1.16.8",
     "redux": "^3.7.2",

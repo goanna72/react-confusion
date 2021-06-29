@@ -5,6 +5,7 @@ ModalHeader, ModalBody } from 'reactstrap';
 import { Link } from 'react-router-dom';
 import { Control, LocalForm, Errors } from 'react-redux-form';
 import { Loading } from './LoadingComponent';
+import { baseUrl } from '../shared/baseUrl';
 
 const maxLength = (len) => (val) => !(val) || (val.length <= len);
 const minLength = (len) => (val) => val && (val.length >= len);
@@ -112,7 +113,7 @@ class CommentForm extends React.Component {
         return(
                  <div  className="col-12 col-md-5 m-1" key={dishDetails.id}>
                     <Card>
-                        <CardImg top width="100%" src={dishDetails.image} alt={dishDetails.name} />
+                        <CardImg top width="100%" src={baseUrl + dishDetails.image} alt={dishDetails.name} />
                             <CardBody>
                                 <CardTitle>{dishDetails.name}</CardTitle>
                                 <CardText>{dishDetails.description}</CardText>
